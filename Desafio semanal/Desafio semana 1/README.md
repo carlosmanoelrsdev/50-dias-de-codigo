@@ -20,7 +20,7 @@ O Controle Fácil tem como objetivo atender pequenas lojas e empreendimentos, of
 - Código modular e de fácil manutenção
 - Separação de responsabilidades por funções
     - `main`: interação com o usuário e tratamento de erros
-    - `calculo`: processamento dos cálculos necessários
+    - `calculo_vendas`: processamento dos cálculos necessários
 
 ---
 
@@ -33,5 +33,6 @@ O Controle Fácil tem como objetivo atender pequenas lojas e empreendimentos, of
 ```bash
 python main.py
 ```
+
 
 Contato: **Carlosmanoeldev@outlook.com**
