@@ -1,9 +1,3 @@
-## Tela inicial do Programa de Gerenciamento de Tarefas
-
-Este programa foi desenvolvido durante o projeto **50 dias de código**, utilizando **Python**.
-Esse programa é o contato inicial com o usuario, foi feito uma opcao onde o usuario escolhe qual das opcoes ele pretende seguir, o programa faz o redirecionamento correto para a funcao que o usuario pediu
-
-
 ## Tela Inicial do Programa de Gerenciamento de Tarefas
 
 Este programa foi desenvolvido durante o projeto 50 dias de código, utilizando Python.
@@ -51,5 +45,6 @@ python main.py
 
 Projeto desenvolvido por Carlos Manoel
 Durante o projeto 50 dias de código
+
 
 Contato: Carlosmanoeldev@outlook.com
