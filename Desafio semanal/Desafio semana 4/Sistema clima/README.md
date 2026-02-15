@@ -84,7 +84,7 @@ Criar uma aplicação funcional que permita ao usuário consultar informações 
 1. **Clone ou baixe o repositório**
 
 ```bash
-git clone <seu-repositorio>
+git clone <https://github.com/carlosmanoelrsdev/50-dias-de-codigo>
 cd "Sistema clima"
 ```
 
