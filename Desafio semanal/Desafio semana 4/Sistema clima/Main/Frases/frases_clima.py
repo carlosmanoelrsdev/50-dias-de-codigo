@@ -1,12 +1,12 @@
 FRASES_CLIMA = {
     "céu limpo": "O sol tá brilhando, DEV! Aproveita antes que o bug apareça.",
     
-    "poucas nuvens": "Algumas nuvens, mas nada que impeça você de codar tranquilo.",
+    "algumas nuvens": "Algumas nuvens, mas nada que impeça você de codar tranquilo.",
     "nuvens dispersas": "Nuvens espalhadas… igual seu foco hoje.",
     "nublado": "O céu tá fechado, mas seu código não precisa estar.",
     "encoberto": "Dia fechado… perfeito pra abrir o VS Code.",
 
-    "chuva fraca": "Chuvinha leve… mas cuidado DEV, seus circuitos são sensíveis!",
+    "chuva leve": "Chuvinha leve… mas cuidado DEV, seus circuitos são sensíveis!",
     "chuva moderada": "Vai molhar tudo, inclusive sua motivação.",
     "chuva forte": "Chuva forte! Não saia, DEV, seus circuitos vão fritar!",
     "pancadas de chuva": "Pancadão de chuva! Melhor ficar no modo offline.",
