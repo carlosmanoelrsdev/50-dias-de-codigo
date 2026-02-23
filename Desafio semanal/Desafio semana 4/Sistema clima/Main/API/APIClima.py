@@ -16,7 +16,7 @@ def buscar_clima(cidade):
     requisicao_atual = requests.get(link_clima_atual)
     requisicao_dic_atual = requisicao_atual.json()
     cod = requisicao_dic_atual.get("cod")
-    
+
     # Tratamento de códigos de resposta HTTP
     if cod == 200:
         # Sucesso: extrai dados climáticos

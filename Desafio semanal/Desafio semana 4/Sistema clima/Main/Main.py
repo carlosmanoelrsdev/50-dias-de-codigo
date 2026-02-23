@@ -5,6 +5,7 @@ from API.APIClima import buscar_clima, buscar_previsao_proximos_dias
 
 ctk.set_appearance_mode("dark")
 
+
 # Interface principal responsável por gerenciar a navegação entre telas
 class Interface(ctk.CTk):
     def __init__(self):
