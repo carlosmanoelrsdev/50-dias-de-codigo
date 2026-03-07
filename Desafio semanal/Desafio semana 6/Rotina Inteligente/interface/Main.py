@@ -889,7 +889,3 @@ class FrameTelaPrincipal(ctk.CTkFrame):
         self.botao_nova.configure(fg_color=normal)
         self.botao_ai.configure(fg_color=normal)
 
-
-if __name__ == "__main__":
-    programa = Interface()
-    programa.mainloop()
