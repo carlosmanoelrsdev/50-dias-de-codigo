@@ -125,7 +125,7 @@ Windows:
 3. **Instale as dependências**
 
 ```bash
-pip install -r requeriments.txt
+pip install -r requirements.txt
 ```
 
 4. **Configure variáveis de ambiente no arquivo `.env`**
