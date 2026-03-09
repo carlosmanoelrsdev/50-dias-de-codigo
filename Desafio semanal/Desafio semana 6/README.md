@@ -1,10 +1,10 @@
 # Rotina Inteligente - Agenda com Clima, IA e Notificações
 
-https://github.com/user-attachments/assets/10696910-66f4-4c79-b97f-8ab116ab8502
-
 **Projeto desenvolvido durante o Desafio de 50 Dias de Código - Semana Final (Semana 6)**
 
 Aplicativo desktop para organização de rotina com login, cadastro de tarefas, consulta de clima em tempo real, notificações locais e assistente de IA focado em produtividade.
+
+https://github.com/user-attachments/assets/10696910-66f4-4c79-b97f-8ab116ab8502
 
 ---
 
