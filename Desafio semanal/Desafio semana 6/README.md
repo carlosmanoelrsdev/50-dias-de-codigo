@@ -4,7 +4,7 @@
 
 Aplicativo desktop para organização de rotina com login, cadastro de tarefas, consulta de clima em tempo real, notificações locais e assistente de IA focado em produtividade.
 
-https://github.com/user-attachments/assets/10696910-66f4-4c79-b97f-8ab116ab8502
+https://github.com/user-attachments/assets/8a342570-361f-4a5a-98df-bf756606e860
 
 ---
 
@@ -196,7 +196,7 @@ Muitas pessoas usam várias ferramentas separadas para organizar o dia (lista de
 - **Tecnologias**: Python, CustomTkinter, SQLite, Requests, Dotenv, Groq, Winotify
 - **Link do repositório**: https://github.com/carlosmanoelrsdev/50-dias-de-codigo
 - **Link de deploy**: Não se aplica (aplicativo desktop)
-- **Demo (vídeo/gif/print)**: https://github.com/user-attachments/assets/10696910-66f4-4c79-b97f-8ab116ab8502
+- **Demo (vídeo/gif/print)**: https://github.com/user-attachments/assets/8a342570-361f-4a5a-98df-bf756606e860
 - **Destaques técnicos**: arquitetura modular, CRUD completo, IA contextual, notificações locais
 
 ---
