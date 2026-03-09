@@ -1,5 +1,7 @@
 # Rotina Inteligente - Agenda com Clima, IA e Notificações
 
+https://github.com/user-attachments/assets/10696910-66f4-4c79-b97f-8ab116ab8502
+
 **Projeto desenvolvido durante o Desafio de 50 Dias de Código - Semana Final (Semana 6)**
 
 Aplicativo desktop para organização de rotina com login, cadastro de tarefas, consulta de clima em tempo real, notificações locais e assistente de IA focado em produtividade.
@@ -123,7 +125,7 @@ Windows:
 3. **Instale as dependências**
 
 ```bash
-pip install -r requeriments.txt
+pip install -r requirements.txt
 ```
 
 4. **Configure variáveis de ambiente no arquivo `.env`**
@@ -211,5 +213,5 @@ Muitas pessoas usam várias ferramentas separadas para organizar o dia (lista de
 ## Autor
 
 **Carlos Manoel**  
-Contato: `Carlosmanoeldev@outlook.com`
+Contato: Carlosmanoeldev@outlook.com
 
