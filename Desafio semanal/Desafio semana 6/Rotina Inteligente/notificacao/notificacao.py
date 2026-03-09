@@ -30,10 +30,7 @@ def enviar_notificacao(titulo, mensagem):
     """Envia uma notificação usando winotify"""
     try:
         notificacao = Notification(
-            app_id="Rotina inteligente", 
-            title=titulo, 
-            msg=mensagem, 
-            duration="short"
+            app_id="Rotina inteligente", title=titulo, msg=mensagem, duration="short"
         )
         notificacao.set_audio(audio.LoopingAlarm4, loop=False)
         notificacao.show()
@@ -44,34 +41,36 @@ def enviar_notificacao(titulo, mensagem):
 def agendar_notificacoes():
     """Verifica tarefas e agenda notificações com base no tempo de antecedência configurado"""
     global notificacoes_agendadas
-    
+
     try:
         tarefas = listar_tarefas()
     except Exception:
         return
-    
+
     if not tarefas:
         return
-    
+
     agora = datetime.now()
-    
+
     for tarefa in tarefas:
-        if not tarefa.get('hora'):
+        if not tarefa.get("hora"):
             continue
-        
+
         try:
-            tarefa_id = tarefa.get('id')
-            hora_tarefa = datetime.strptime(tarefa['hora'], "%H:%M").time()
+            tarefa_id = tarefa.get("id")
+            hora_tarefa = datetime.strptime(tarefa["hora"], "%H:%M").time()
             horario_tarefa = datetime.combine(agora.date(), hora_tarefa)
-            
+
             # Se a tarefa já passou hoje, agenda para amanhã
             if horario_tarefa <= agora:
                 horario_tarefa += timedelta(days=1)
-            
+
             # Calcula o tempo de antecedência configurado
-            tempo_notificacao = horario_tarefa - timedelta(minutes=TEMPO_ANTECEDENCIA_MINUTOS)
+            tempo_notificacao = horario_tarefa - timedelta(
+                minutes=TEMPO_ANTECEDENCIA_MINUTOS
+            )
             tempo_espera = (tempo_notificacao - agora).total_seconds()
-            
+
             # Se não foi agendada ainda e o tempo é positivo, agenda
             if tarefa_id not in notificacoes_agendadas and tempo_espera > 0:
                 timer = threading.Timer(
@@ -79,13 +78,13 @@ def agendar_notificacoes():
                     enviar_notificacao,
                     args=[
                         f"Lembrete: {tarefa['atividade']}",
-                        f"Sua tarefa '{tarefa['atividade']}' começará em {TEMPO_ANTECEDENCIA_MINUTOS} minutos às {tarefa['hora']}"
-                    ]
+                        f"Sua tarefa '{tarefa['atividade']}' começará em {TEMPO_ANTECEDENCIA_MINUTOS} minutos às {tarefa['hora']}",
+                    ],
                 )
                 timer.daemon = True
                 timer.start()
                 notificacoes_agendadas[tarefa_id] = True
-        
+
         except ValueError:
             pass
 
@@ -94,13 +93,13 @@ def monitorar_notificacoes():
     """Loop contínuo que verifica tarefas a cada minuto"""
     global notificacoes_agendadas
     tempo_anterior = TEMPO_ANTECEDENCIA_MINUTOS
-    
+
     while True:
         # Se o tempo de antecedência mudou, limpa e reagenda todas as notificações
         if tempo_anterior != TEMPO_ANTECEDENCIA_MINUTOS:
             notificacoes_agendadas.clear()
             tempo_anterior = TEMPO_ANTECEDENCIA_MINUTOS
-        
+
         agendar_notificacoes()
         time.sleep(60)  # Verifica a cada 60 segundos
 

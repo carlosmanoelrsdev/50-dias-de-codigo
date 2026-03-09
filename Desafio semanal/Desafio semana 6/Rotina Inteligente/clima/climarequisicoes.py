@@ -63,4 +63,3 @@ def buscar_clima(cidade):
         }
 
     return dados
-

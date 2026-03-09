@@ -13,12 +13,12 @@ class ChatAtividadesService:
         load_dotenv(override=True)
         self.atividade_base = (atividade_base or "").strip()
         self.historico: List[Dict[str, str]] = []
-        
+
         # Inicializa cliente Groq
         api_key = os.getenv("GROQ_API_KEY", "").strip()
         if not api_key:
             raise ValueError("Configure GROQ_API_KEY no .env para ativar o chat.")
-        
+
         self.client = Groq(api_key=api_key)
 
     def mensagem_inicial(self) -> str:
@@ -53,20 +53,17 @@ class ChatAtividadesService:
             completion = self.client.chat.completions.create(
                 model="llama-3.3-70b-versatile",
                 messages=[
-                    {
-                        "role": "system",
-                        "content": prompt_sistema
-                    },
+                    {"role": "system", "content": prompt_sistema},
                     {
                         "role": "user",
                         "content": (
                             f"Atividade base: {self.atividade_base}\n"
                             f"Mensagem: {texto}"
-                        )
-                    }
+                        ),
+                    },
                 ],
                 temperature=0.7,
-                max_tokens=1024
+                max_tokens=1024,
             )
 
             # Extrai resposta do modelo
@@ -82,7 +79,7 @@ class ChatAtividadesService:
         except Exception as e:
             # Tratamento de erros da API Groq
             erro_str = str(e).lower()
-            
+
             if "authentication" in erro_str or "invalid api key" in erro_str:
                 return "Chave Groq inválida ou sem permissão. Verifique GROQ_API_KEY no .env."
             elif "rate limit" in erro_str or "quota" in erro_str:

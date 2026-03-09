@@ -170,4 +170,3 @@ def inicializar_banco():
 if __name__ == "__main__":
     inicializar_banco()
     print(f"Banco pronto em: {DB_PATH}")
-

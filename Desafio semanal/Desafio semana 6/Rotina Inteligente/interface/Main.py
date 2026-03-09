@@ -28,7 +28,7 @@ class Interface(ctk.CTk):
         self.title("Rotina Inteligente")
         self.geometry("1100x700")
         self.resizable(False, False)
-        
+
         self.cidade_logada = None  # Armazena a cidade do login
 
         self.frame_telaLogin = FrameTelaLogin(self)
@@ -126,7 +126,7 @@ class DashboardPagina(ctk.CTkFrame):
             text_color="gray",
         )
         self.label_feedback_clima.pack(side="left", padx=(8, 0))
-        
+
         # Atualiza o clima logo que o dashboard for carregado
         self.after(100, self.atualizar_clima_dashboard)
 
@@ -202,7 +202,9 @@ class DashboardPagina(ctk.CTkFrame):
             widget.destroy()
 
         for i, item in enumerate(lista):
-            self.criar_card(i, 0, item["atividade"], item["hora"], item["status"], item["id"])
+            self.criar_card(
+                i, 0, item["atividade"], item["hora"], item["status"], item["id"]
+            )
 
     def atualizar_clima_dashboard(self):
         """Busca e exibe o clima no dashboard"""
@@ -213,10 +215,14 @@ class DashboardPagina(ctk.CTkFrame):
 
             if not cidade:
                 self.label_clima.configure(text="CLIMA: Informe a cidade no login")
-                self.label_feedback_clima.configure(text="Sem cidade", text_color="#CD8500")
+                self.label_feedback_clima.configure(
+                    text="Sem cidade", text_color="#CD8500"
+                )
                 self.after(
                     2000,
-                    lambda: self.label_feedback_clima.configure(text="", text_color="gray"),
+                    lambda: self.label_feedback_clima.configure(
+                        text="", text_color="gray"
+                    ),
                 )
                 return
 
@@ -226,7 +232,9 @@ class DashboardPagina(ctk.CTkFrame):
 
             if temperatura != "N/A":
                 texto_clima = f"CLIMA: {descricao}, {temperatura}°C"
-                self.label_feedback_clima.configure(text="Atualizado", text_color="#77CB42")
+                self.label_feedback_clima.configure(
+                    text="Atualizado", text_color="#77CB42"
+                )
             else:
                 texto_clima = f"CLIMA: {descricao}"
                 self.label_feedback_clima.configure(text="Falha", text_color="#C40404")
@@ -445,7 +453,9 @@ class DashboardPagina(ctk.CTkFrame):
         entry_hora = ctk.CTkEntry(janela, width=420)
         entry_hora.pack(pady=8)
         entry_hora.insert(0, tarefa["hora"])
-        entry_hora.bind("<KeyRelease>", lambda event: self.filtrar_hora_numerica(entry_hora))
+        entry_hora.bind(
+            "<KeyRelease>", lambda event: self.filtrar_hora_numerica(entry_hora)
+        )
 
         option_status = ctk.CTkOptionMenu(
             janela,
@@ -470,11 +480,15 @@ class DashboardPagina(ctk.CTkFrame):
             descricao = text_descricao.get("1.0", "end").strip()
 
             if not atividade or not hora:
-                messagebox.showwarning("Campos obrigatorios", "Preencha atividade e hora.")
+                messagebox.showwarning(
+                    "Campos obrigatorios", "Preencha atividade e hora."
+                )
                 return
 
             if not self.hora_valida(hora):
-                messagebox.showwarning("Hora invalida", "Use o formato HH:MM (ex.: 08:30).")
+                messagebox.showwarning(
+                    "Hora invalida", "Use o formato HH:MM (ex.: 08:30)."
+                )
                 return
 
             sucesso = atualizar_tarefa(
@@ -532,7 +546,9 @@ class NovaTarefaPagina(ctk.CTkFrame):
             self, text="NOVA TAREFA", font=ctk.CTkFont(size=34, weight="bold")
         ).pack(pady=30)
 
-        self.entry_atividade = ctk.CTkEntry(self, placeholder_text="Atividade", width=450)
+        self.entry_atividade = ctk.CTkEntry(
+            self, placeholder_text="Atividade", width=450
+        )
         self.entry_atividade.pack(pady=8)
 
         self.entry_hora = ctk.CTkEntry(self, placeholder_text="Hora (HH:MM)", width=450)
@@ -546,13 +562,17 @@ class NovaTarefaPagina(ctk.CTkFrame):
         )
         self.option_status.pack(pady=8)
 
-        self.label_desc = ctk.CTkLabel(self, text="Descrição:", font=ctk.CTkFont(size=14))
+        self.label_desc = ctk.CTkLabel(
+            self, text="Descrição:", font=ctk.CTkFont(size=14)
+        )
         self.label_desc.pack(pady=(20, 5), anchor="center", padx=10)
 
         self.text_descricao = ctk.CTkTextbox(self, width=450, height=160)
         self.text_descricao.pack(pady=8)
 
-        botao_salvar = ctk.CTkButton(self, text="Salvar Tarefa", width=450, command=self.salvar_tarefa)
+        botao_salvar = ctk.CTkButton(
+            self, text="Salvar Tarefa", width=450, command=self.salvar_tarefa
+        )
         botao_salvar.pack(pady=10)
 
     def filtrar_hora_numerica(self, event=None):
@@ -746,7 +766,9 @@ class AssistentePagina(ctk.CTkFrame):
         for widget in self.area_mensagens.winfo_children():
             widget.destroy()
 
-        self.adicionar_bolha_mensagem(self.chat_service.mensagem_inicial(), "assistente")
+        self.adicionar_bolha_mensagem(
+            self.chat_service.mensagem_inicial(), "assistente"
+        )
 
     def enviar_mensagem_chat_event(self, event):
         self.enviar_mensagem_chat()
@@ -888,4 +910,3 @@ class FrameTelaPrincipal(ctk.CTkFrame):
         self.botao_dashboard.configure(fg_color=normal)
         self.botao_nova.configure(fg_color=normal)
         self.botao_ai.configure(fg_color=normal)
-
